@@ -11,16 +11,8 @@ const commitlintAiConfig = {
     source: 'auto',
   },
   validationMaxRetries: 3,
-  instructions: `Your task is to write a commit message that follows the Conventional Commits specification WITH EMOJIS.
-
-    STRICT FORMAT: <type>: <emoji> <subject>
-
-    1. Use standard types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert.
-    2. EMOJI: You MUST include a relevant Gitmoji (https://gitmoji.dev) immediately after the colon and space. Select the emoji based on the specific action, not just the commit type.
-    3. SUBJECT: Use the imperative mood (present tense). Focus on the "what" and "why" (business value). Keep it concise and lowercase.
-    4. BODY (optional): Explain the "how" (technical implementation details).
-
-    Example: "feat: ✨ add user authentication via OAuth"`,
+  instructions:
+    'Use the imperative mood (present tense) for the subject line. Focus the subject on the "what" and "why" (business value). In the commit body, explain the "how" (technical implementation details).',
 }
 
 export default commitlintAiConfig
