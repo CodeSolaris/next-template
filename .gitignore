@@ -50,3 +50,8 @@ next-env.d.ts
 /storybook-static/
 
 *storybook.log
+
+# Playwright
+node_modules/
+/playwright/.cache/
+/playwright/.auth/
