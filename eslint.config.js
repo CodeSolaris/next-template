@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url'
 
 import antfu from '@antfu/eslint-config'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
+import storybook from 'eslint-plugin-storybook'
 import tailwind from 'eslint-plugin-tailwindcss'
 
 export default antfu(
@@ -14,6 +15,9 @@ export default antfu(
   },
   // --- Accessibility Rules ---
   jsxA11y.flatConfigs.recommended,
+
+  // --- Storybook Rules ---
+  ...storybook.configs['flat/recommended'],
 
   // --- Tailwind CSS Rules ---
   ...tailwind.configs['flat/recommended'],
