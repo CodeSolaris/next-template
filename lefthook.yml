@@ -9,7 +9,7 @@ pre-commit:
   parallel: true
   commands:
     lint:
-      glob: '*.{js,ts,jsx,tsx}'
+      glob: '{src,app,.github,.}/**/*.{ js,ts,jsx,tsx,yml,yaml,json ,md, mdx,mjs, cjs ,css, scss, svg}'
       run: bunx --no -- eslint --fix --no-warn-ignored {staged_files}
     check-types:
       run: bun run check:types

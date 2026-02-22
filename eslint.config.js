@@ -11,7 +11,7 @@ export default antfu(
     react: true,
     nextjs: true,
     typescript: true,
-    ignores: ['.next', 'dist', 'out', 'coverage', 'public'],
+    ignores: ['.next', 'dist', 'out', 'coverage', 'public', '.agents', 'playwright-report', 'test-results'],
   },
   // --- Accessibility Rules ---
   jsxA11y.flatConfigs.recommended,

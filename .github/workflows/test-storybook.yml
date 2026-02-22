@@ -7,6 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-project
-      
+
       - name: Run Storybook Tests
         run: bun run storybook:test
