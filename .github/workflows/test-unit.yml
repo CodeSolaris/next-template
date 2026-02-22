@@ -7,7 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-project
-      
+
       - name: Run Vitest
         run: bun run test:run
-        

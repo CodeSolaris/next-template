@@ -55,3 +55,6 @@ next-env.d.ts
 node_modules/
 /playwright/.cache/
 /playwright/.auth/
+
+# eslint
+.eslintcache

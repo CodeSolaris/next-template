@@ -23,7 +23,6 @@ jobs:
       - name: Build Next.js
         run: bun run build
 
-
       - name: Run Playwright
         run: bun run test:e2e
 
