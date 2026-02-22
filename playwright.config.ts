@@ -1,5 +1,4 @@
 import process from 'node:process'
-
 import { defineConfig, devices } from '@playwright/test'
 
 const PORT = process.env.PORT || 3000
@@ -12,20 +11,24 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: process.env.CI ? 'github' : 'html',
+
+  reporter: process.env.CI
+    ? [['github'], ['html', { open: 'never', outputFolder: 'playwright-report' }]]
+    : 'html',
 
   use: {
     baseURL,
     trace: 'on-first-retry',
-    video: 'retain-on-failure',
+    video: 'on-first-retry',
   },
 
   webServer: {
-    command: 'bun dev',
+    command: process.env.CI ? 'bun start' : 'bun dev',
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     stdout: 'ignore',
     stderr: 'pipe',
+    timeout: 120 * 1000,
   },
 
   projects: [
