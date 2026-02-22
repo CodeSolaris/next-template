@@ -17,8 +17,10 @@ jobs:
 
       - name: Install Playwright Browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        shell: bash
-        run: bunx playwright install --with-deps webkit
+        run: bunx playwright install webkit
+
+      - name: Install Playwright System Dependencies
+        run: bunx playwright install-deps webkit
 
       - name: Build Next.js
         run: bun run build
