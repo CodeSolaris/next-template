@@ -1,0 +1,15 @@
+name: Lint & Types
+on: workflow_call
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-project
+      
+      - name: Check Types
+        run: bun run check:types
+        
+      - name: Lint Code
+        run: bun run lint
