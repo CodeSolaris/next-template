@@ -1,4 +1,4 @@
-# Validate commit messages
+# Validate commit messages (Оставляем, для semantic-release это критично)
 commit-msg:
   commands:
     commitlint:
@@ -6,15 +6,16 @@ commit-msg:
 
 # Fast static analysis only — keeps commits snappy
 pre-commit:
+  parallel: true
   commands:
     lint:
+      glob: '*.{js,ts,jsx,tsx}'
       run: bunx --no -- eslint --fix --no-warn-ignored {staged_files}
-      stage_fixed: true
     check-types:
       run: bun run check:types
-
 # Full test suite before push — parallel for speed
 pre-push:
+  parallel: true
   commands:
     test:
       run: bun run test:run
