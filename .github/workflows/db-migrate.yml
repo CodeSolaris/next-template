@@ -1,0 +1,28 @@
+name: DB Migrations
+on:
+  workflow_call:
+    inputs:
+      branch_name:
+        required: true
+        type: string
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-project
+      
+      - name: Set DATABASE_URL
+        id: db-env
+        run: |
+          if [[ "${{ inputs.branch_name }}" == "main" ]]; then
+            echo "url=${{ secrets.DATABASE_URL_PROD }}" >> $GITHUB_OUTPUT
+          else
+            echo "url=${{ secrets.DATABASE_URL_PREVIEW }}" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Run Drizzle Migrations
+        run: bunx drizzle-kit migrate
+        env:
+          DATABASE_URL: ${{ steps.db-env.outputs.url }}
