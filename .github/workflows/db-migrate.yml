@@ -26,10 +26,10 @@ jobs:
           else
             LOCAL_DB_URL="${{ secrets.DATABASE_URL_PREVIEW }}"
           fi
-          
+
           # Сначала маскируем переменную для вывода логов текущего шага
           echo "::add-mask::$LOCAL_DB_URL"
-          
+
           # Затем сохраняем её в глобальное окружение для следующих шагов
           echo "DATABASE_URL=$LOCAL_DB_URL" >> $GITHUB_ENV
 
