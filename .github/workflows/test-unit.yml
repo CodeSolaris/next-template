@@ -1,0 +1,12 @@
+name: Unit Tests
+on: workflow_call
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/setup-project
+
+      - name: Run Vitest
+        run: bun run test:run
