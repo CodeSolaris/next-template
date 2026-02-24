@@ -1,3 +1,10 @@
+## [1.0.1-beta.1](https://github.com/CodeSolaris/next-template/compare/v1.0.0...v1.0.1-beta.1) (2026-02-24)
+
+
+### Bug Fixes
+
+* **lint:** add missing eslint-plugin-react-refresh and fix eslint version ([0d2bd3a](https://github.com/CodeSolaris/next-template/commit/0d2bd3a63417a8d0d9222c70738765f6b2c5a0ab))
+
 # 1.0.0 (2026-02-20)
 
 
