@@ -1,16 +1,26 @@
 name: Playwright Tests
-on: workflow_call
-
+on:
+  workflow_call:
+    inputs:
+      commit_sha:
+        required: true
+        type: string
 jobs:
   e2e:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup-project
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.commit_sha || github.sha }}
+
+      - name: Setup Project
+        uses: ./.github/actions/setup-project
+        with:
+          node-version: 'lts/*'
 
       - name: Cache Playwright Browsers
         id: playwright-cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('**/bun.lock*') }}
@@ -27,9 +37,11 @@ jobs:
 
       - name: Run Playwright
         run: bun run test:e2e
+        env:
+          BASE_URL: http://localhost:3000
 
       - name: Upload Playwright Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         if: failure()
         with:
           name: playwright-report

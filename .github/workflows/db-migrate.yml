@@ -10,19 +10,25 @@ jobs:
   migrate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/setup-project
+      - uses: actions/checkout@v6
 
-      - name: Set DATABASE_URL
+      - name: Setup Project
+        uses: ./.github/actions/setup-project
+        with:
+          node-version: 'lts/*'
+
+      - name: Set Environment
         id: db-env
+        shell: bash
         run: |
-          if [[ "${{ inputs.branch_name }}" == "main" ]]; then
-            echo "url=${{ secrets.DATABASE_URL_PROD }}" >> $GITHUB_OUTPUT
+          if [[ "${{ inputs.branch_name }}" == "production" ]]; then
+            echo "DATABASE_URL=${{ secrets.DATABASE_URL_PROD }}" >> $GITHUB_ENV
           else
-            echo "url=${{ secrets.DATABASE_URL_PREVIEW }}" >> $GITHUB_OUTPUT
+            echo "DATABASE_URL=${{ secrets.DATABASE_URL_PREVIEW }}" >> $GITHUB_ENV
           fi
+          echo "::add-mask::$DATABASE_URL"
 
       - name: Run Drizzle Migrations
         run: bunx drizzle-kit migrate
         env:
-          DATABASE_URL: ${{ steps.db-env.outputs.url }}
+          DATABASE_URL: ${{ env.DATABASE_URL }}

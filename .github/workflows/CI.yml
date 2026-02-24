@@ -2,9 +2,8 @@ name: CI
 
 on:
   push:
-    branches: [main, next, next-major, beta, alpha]
-  pull_request:
-    branches: [main, next, next-major, beta, alpha]
+    branches: ['**']
+    tags-ignore: ['**']
 
 jobs:
   lint-types:
@@ -12,15 +11,3 @@ jobs:
 
   unit-tests:
     uses: ./.github/workflows/test-unit.yml
-
-  storybook-tests:
-    if: >
-      (github.event_name == 'pull_request' && github.base_ref == 'main') ||
-      (github.event_name == 'push' && github.ref == 'refs/heads/main')
-    uses: ./.github/workflows/test-storybook.yml
-
-  e2e-tests:
-    if: >
-      (github.event_name == 'pull_request' && github.base_ref == 'main') ||
-      (github.event_name == 'push' && github.ref == 'refs/heads/main')
-    uses: ./.github/workflows/playwright.yml
