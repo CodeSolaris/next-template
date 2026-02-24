@@ -44,6 +44,9 @@ jobs:
           persist-credentials: false
           ref: ${{ github.event.workflow_run.head_branch }}
 
+      - name: Fetch remote branches for Semantic Release
+        run: git fetch origin
+
       - uses: ./.github/actions/setup-project
 
       - name: Semantic Release
