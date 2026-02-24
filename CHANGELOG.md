@@ -1,3 +1,10 @@
+## [1.0.1-beta.2](https://github.com/CodeSolaris/next-template/compare/v1.0.1-beta.1...v1.0.1-beta.2) (2026-02-24)
+
+
+### Performance Improvements
+
+* use bun-native runtime for next.js scripts ([bbc4aba](https://github.com/CodeSolaris/next-template/commit/bbc4aba89a5d606bcc58b2215a39b6a56bc2c32a))
+
 ## [1.0.1-beta.1](https://github.com/CodeSolaris/next-template/compare/v1.0.0...v1.0.1-beta.1) (2026-02-24)
 
 
