@@ -24,23 +24,31 @@ runs:
       with:
         bun-version: latest
 
-    - name: Cache Bun global cache
+    - name: Cache Bun dependencies
       uses: actions/cache@v5
       with:
         path: ~/.bun/install/cache
-        key: ${{ runner.os }}-bun-global-${{ hashFiles('**/bun.lock*') }}
+        key: ${{ runner.os }}-bun-deps-${{ hashFiles('**/bun.lock*', '**/package.json') }}
         restore-keys: |
-          ${{ runner.os }}-bun-global-
-
-    - name: Install dependencies
-      shell: bash
-      run: bun install --frozen-lockfile
+          ${{ runner.os }}-bun-deps-
 
     - name: Cache Next.js build
       if: inputs.restore-nextjs-cache == 'true'
       uses: actions/cache@v5
       with:
-        path: .next/cache
-        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/bun.lock*', '**/next.config.*', '**/package.json', '**/tsconfig.json') }}
+        path: ${{ github.workspace }}/.next/cache
+
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/bun.lock*', '**/next.config.*') }}-${{ hashFiles('src/**/*.{js,jsx,ts,tsx}') }}
         restore-keys: |
+          ${{ runner.os }}-nextjs-${{ hashFiles('**/bun.lock*', '**/next.config.*') }}-
           ${{ runner.os }}-nextjs-
+
+    - name: Install dependencies
+      shell: bash
+      run: bun install --frozen-lockfile
+      env:
+        CI: true
+
+    - name: Set CI environment
+      shell: bash
+      run: echo "CI=true" >> $GITHUB_ENV
