@@ -30,10 +30,11 @@ jobs:
 
       - name: Install Playwright Browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: bunx playwright install
+        run: bun playwright install --with-deps
 
-      - name: Install Playwright System Dependencies
-        run: bunx playwright install-deps
+      - name: Ensure Playwright System Dependencies
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: bun playwright install-deps
 
       - name: Build Next.js
         run: bun run build
