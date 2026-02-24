@@ -20,18 +20,16 @@ jobs:
       - name: Set Environment
         id: db-env
         shell: bash
+        env:
+          PROD_URL: ${{ secrets.DATABASE_URL_PROD }}
+          PREVIEW_URL: ${{ secrets.DATABASE_URL_PREVIEW }}
+          BRANCH: ${{ inputs.branch_name }}
         run: |
-          if [[ "${{ inputs.branch_name }}" == "production" ]]; then
-            LOCAL_DB_URL="${{ secrets.DATABASE_URL_PROD }}"
+          if [[ "$BRANCH" == "production" ]]; then
+            echo "DATABASE_URL=$PROD_URL" >> $GITHUB_ENV
           else
-            LOCAL_DB_URL="${{ secrets.DATABASE_URL_PREVIEW }}"
+            echo "DATABASE_URL=$PREVIEW_URL" >> $GITHUB_ENV
           fi
-
-          # Сначала маскируем переменную для вывода логов текущего шага
-          echo "::add-mask::$LOCAL_DB_URL"
-
-          # Затем сохраняем её в глобальное окружение для следующих шагов
-          echo "DATABASE_URL=$LOCAL_DB_URL" >> $GITHUB_ENV
 
       - name: Run Drizzle Migrations
         run: bunx drizzle-kit migrate
