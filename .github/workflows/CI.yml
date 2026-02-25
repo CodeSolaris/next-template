@@ -1,0 +1,13 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+    tags-ignore: ['**']
+
+jobs:
+  lint-types:
+    uses: ./.github/workflows/check-lint-types.yml
+
+  unit-tests:
+    uses: ./.github/workflows/test-unit.yml
