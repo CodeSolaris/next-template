@@ -1,3 +1,22 @@
+# [1.1.0](https://github.com/CodeSolaris/next-template/compare/v1.0.0...v1.1.0) (2026-02-25)
+
+
+### Bug Fixes
+
+* **lint:** add missing eslint-plugin-react-refresh and fix eslint version ([0d2bd3a](https://github.com/CodeSolaris/next-template/commit/0d2bd3a63417a8d0d9222c70738765f6b2c5a0ab))
+* resolve CI issues and update release checkout ([e44018e](https://github.com/CodeSolaris/next-template/commit/e44018e3d10b33c8244ec3b0c01043d7e28f8e6d))
+* secure DB secrets, refine fetch for semantic-release and PR checker ([cf98c5a](https://github.com/CodeSolaris/next-template/commit/cf98c5a182479bf2acb5db5016342e558673f88e))
+
+
+### Features
+
+* configure pipeline for dev and main branch strategy ([d603bde](https://github.com/CodeSolaris/next-template/commit/d603bde91b766ffedb7cfe7c6b37b2659118ca46))
+
+
+### Performance Improvements
+
+* use bun-native runtime for next.js scripts ([bbc4aba](https://github.com/CodeSolaris/next-template/commit/bbc4aba89a5d606bcc58b2215a39b6a56bc2c32a))
+
 ## [1.0.1-beta.4](https://github.com/CodeSolaris/next-template/compare/v1.0.1-beta.3...v1.0.1-beta.4) (2026-02-25)
 
 
