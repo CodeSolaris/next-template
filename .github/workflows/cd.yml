@@ -44,8 +44,12 @@ jobs:
           persist-credentials: false
           ref: ${{ github.event.workflow_run.head_branch }}
 
-      - name: Fetch remote branches for Semantic Release
-        run: git fetch origin
+      - name: Map all remote branches locally for Semantic Release
+        run: |
+          for branch in $(git branch -r | grep -v '\->' | sed 's/origin\///'); do
+            git branch --track "$branch" "origin/$branch" 2>/dev/null || true
+          done
+          git checkout -B ${{ github.event.workflow_run.head_branch }}
 
       - uses: ./.github/actions/setup-project
 
