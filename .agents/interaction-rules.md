@@ -1,6 +1,6 @@
 # AI Interaction and Communication Rules
 
-**!!! ПРЕЖДЕ ЧЕМ ЧТО-ТО ЗАПУСКАТЬ ИЛИ ИЗМЕНЯТЬ КОД: СПЕРВА ПОЯСНИ, ЧТО ПЛАНИРУЕШЬ СДЕЛАТЬ, И ВЫПОЛНЯЙ ТОЛЬКО ПОСЛЕ ЯВНОГО ОДОБРЕНИЯ !!!**
+**!!! BEFORE RUNNING ANYTHING OR CHANGING CODE: FIRST EXPLAIN WHAT YOU PLAN TO DO, AND EXECUTE ONLY AFTER EXPLICIT APPROVAL !!!**
 
 ## 1. Language and Communication Style
 - **Primary Language:** Russian (unless English is explicitly requested).
