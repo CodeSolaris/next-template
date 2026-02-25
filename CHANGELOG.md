@@ -1,3 +1,10 @@
+## [1.0.1-beta.4](https://github.com/CodeSolaris/next-template/compare/v1.0.1-beta.3...v1.0.1-beta.4) (2026-02-25)
+
+
+### Bug Fixes
+
+* secure DB secrets, refine fetch for semantic-release and PR checker ([cf98c5a](https://github.com/CodeSolaris/next-template/commit/cf98c5a182479bf2acb5db5016342e558673f88e))
+
 ## [1.0.1-beta.3](https://github.com/CodeSolaris/next-template/compare/v1.0.1-beta.2...v1.0.1-beta.3) (2026-02-24)
 
 
