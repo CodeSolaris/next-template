@@ -1,13 +1,19 @@
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Fira_Code, Instrument_Serif, Sora } from 'next/font/google'
 
-export const fontSans = Geist({
-  variable: '--font-geist-sans',
+export const fontSans = Sora({
   subsets: ['latin'],
+  variable: '--font-sora',
 })
 
-export const fontMono = Geist_Mono({
-  variable: '--font-geist-mono',
+export const fontSerif = Instrument_Serif({
   subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-instrument-serif',
 })
 
-export const fontBodyClassNames = `${fontSans.variable} ${fontMono.variable} antialiased`
+export const fontMono = Fira_Code({
+  subsets: ['latin'],
+  variable: '--font-fira-code',
+})
+
+export const fontBodyClassNames = `${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} font-sans antialiased`

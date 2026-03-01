@@ -1,2 +1,2 @@
-export { fontBodyClassNames, fontMono, fontSans } from './fonts'
+export { fontBodyClassNames, fontMono, fontSans, fontSerif } from './fonts'
 export { baseMetadata } from './metadata'
