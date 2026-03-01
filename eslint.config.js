@@ -24,7 +24,7 @@ export default antfu(
   {
     settings: {
       tailwindcss: {
-        config: `${dirname(fileURLToPath(import.meta.url))}/src/styles/globals.css`,
+        config: `${dirname(fileURLToPath(import.meta.url))}/src/app/styles/globals.css`,
       },
     },
   },
