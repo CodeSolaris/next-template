@@ -1,31 +1,33 @@
+'use client'
+
 import FaqSection from './FaqSection'
 import FeaturesBlock from './FeaturesBlock'
 import Footer from './Footer'
 import HeroSection from './HeroSection'
 import InteractiveFeatures from './InteractiveFeatures'
-import Marquee from './Marquee'
 import Navbar from './Navbar'
 import PricingSection from './PricingSection'
 import ProtocolSection from './ProtocolSection'
 
 export function HomePage() {
   return (
-    <main className="relative flex min-h-screen flex-col overflow-x-hidden bg-background text-foreground selection:bg-primary/30">
-      {/* Dynamic Background Gradations */}
-      <div className="pointer-events-none absolute top-0 right-0 h-[600px] w-[600px] rounded-full bg-primary/10 mix-blend-screen blur-[150px]" />
-      <div className="pointer-events-none absolute top-[40%] left-[-10%] h-[500px] w-[500px] rounded-full bg-blue-500/10 mix-blend-screen blur-[150px]" />
+    <main className="relative min-h-screen bg-background">
+      <Navbar />
 
-      {/* Site Components */}
-      <div className="relative isolate z-10">
-        <Navbar />
+      <div className="flex flex-col">
         <HeroSection />
-        <InteractiveFeatures />
         <FeaturesBlock />
+        <InteractiveFeatures />
         <ProtocolSection />
         <PricingSection />
-        <Marquee />
         <FaqSection />
-        <Footer />
+      </div>
+
+      <Footer />
+
+      {/* Global Background Elements */}
+      <div className="pointer-events-none fixed inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(123,97,255,0.05)_0%,transparent_70%)]" />
       </div>
     </main>
   )

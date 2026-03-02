@@ -5,7 +5,8 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Link from 'next/link'
 import { useRef, useState } from 'react'
-import { ThemeToggle } from './ThemeToggle'
+import { ThemeToggle } from '@/features/theme'
+import { Button } from '@/shared/ui'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -67,14 +68,9 @@ export default function Navbar() {
         >
           Log In
         </Link>
-        <Link
-          href="/signup"
-          className="group relative overflow-hidden rounded-full bg-primary px-5 py-2 font-mono text-sm font-medium text-white shadow-[0_0_15px_rgba(123,97,255,0.2)] transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:scale-[1.03]"
-        >
-          <span className="relative z-10">Start Free</span>
-          {/* Hover highlight layer */}
-          <span className="absolute inset-0 z-0 translate-y-[100%] bg-white/20 transition-transform duration-300 ease-out group-hover:translate-y-0" />
-        </Link>
+        <Button href="/signup" className="px-5 py-2 text-sm">
+          Start Free
+        </Button>
       </div>
     </header>
   )

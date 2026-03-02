@@ -6,11 +6,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { CalendarRange, CreditCard, Video } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
+import { useFeedback } from '@/features/feedback'
 import dashboardDark from '@/shared/assets/images/design/dark/dashboard.png'
 import dashboardLight from '@/shared/assets/images/design/light/dashboard.png'
-import { useFeedback } from '@/shared/lib'
+import { Button, IconCircle } from '@/shared/ui'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -109,19 +109,16 @@ export default function HeroSection() {
           calls, sales, and CRM in a single premium dashboard.
         </p>
         <div className="hero-text-anim mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link
-            href="/signup"
-            className="group relative inline-block overflow-hidden rounded-full bg-primary px-8 py-3.5 font-mono text-base font-medium text-white shadow-[0_0_30px_rgba(123,97,255,0.3)] transition-transform duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:scale-[1.03]"
-          >
-            <span className="relative z-10">Get Early Access</span>
-            <span className="absolute inset-0 z-0 translate-y-[100%] bg-white/20 transition-transform duration-300 ease-out group-hover:translate-y-0" />
-          </Link>
-          <button
+          <Button href="/signup" className="px-8 py-3.5">
+            Get Early Access
+          </Button>
+          <Button
+            variant="secondary"
             onClick={openFeedback}
-            className="group relative inline-block overflow-hidden rounded-full border border-foreground/10 bg-surface px-8 py-3.5 font-mono text-base font-medium text-foreground shadow-xl shadow-background/5 transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:scale-[1.03] hover:bg-foreground/5"
+            className="px-8 py-3.5"
           >
-            <span className="relative z-10">Talk to Us</span>
-          </button>
+            Talk to Us
+          </Button>
         </div>
       </div>
 
@@ -143,9 +140,9 @@ export default function HeroSection() {
         {/* Floating Cards */}
         {/* 1. Seamless Booking */}
         <div className="floating-card absolute top-[20%] -left-4 flex items-center gap-4 rounded-2xl border border-foreground/10 bg-surface/80 p-4 shadow-xl backdrop-blur-xl md:-left-12">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+          <IconCircle variant="primary">
             <CalendarRange className="h-5 w-5" />
-          </div>
+          </IconCircle>
           <div>
             <div className="font-sans text-sm font-bold text-foreground">
               Seamless Booking
@@ -158,9 +155,9 @@ export default function HeroSection() {
 
         {/* 2. Global Payments */}
         <div className="floating-card absolute top-[40%] -right-4 flex items-center gap-4 rounded-2xl border border-foreground/10 bg-surface/80 p-4 shadow-xl backdrop-blur-xl md:-right-8">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500/20 text-green-400">
+          <IconCircle variant="green">
             <CreditCard className="h-5 w-5" />
-          </div>
+          </IconCircle>
           <div>
             <div className="font-sans text-sm font-bold text-foreground">
               Global Payments
@@ -173,9 +170,9 @@ export default function HeroSection() {
 
         {/* 3. Native Video Calls */}
         <div className="floating-card absolute bottom-[15%] left-10 flex items-center gap-4 rounded-2xl border border-foreground/10 bg-surface/80 p-4 shadow-xl backdrop-blur-xl md:left-20">
-          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/20 text-blue-400">
+          <IconCircle variant="blue">
             <Video className="h-5 w-5" />
-          </div>
+          </IconCircle>
           <div>
             <div className="font-sans text-sm font-bold text-foreground">
               Built-in Video

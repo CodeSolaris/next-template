@@ -1,6 +1,6 @@
 'use client'
 
-import * as React from 'react'
+import { createContext, use } from 'react'
 
 export interface FeedbackContextType {
   isOpen: boolean
@@ -8,10 +8,10 @@ export interface FeedbackContextType {
   closeFeedback: () => void
 }
 
-export const FeedbackContext = React.createContext<FeedbackContextType | undefined>(undefined)
+export const FeedbackContext = createContext<FeedbackContextType | null>(null)
 
 export function useFeedback() {
-  const context = React.use(FeedbackContext)
+  const context = use(FeedbackContext)
   if (!context) {
     throw new Error('useFeedback must be used within a FeedbackProvider')
   }

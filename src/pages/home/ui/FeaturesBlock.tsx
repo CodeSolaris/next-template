@@ -6,62 +6,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-
-import aiDark from '@/shared/assets/images/design/dark/ai.png'
-import bookingDark from '@/shared/assets/images/design/dark/booking.png'
-import meetingsDark from '@/shared/assets/images/design/dark/meetings.png'
-import servicesDark from '@/shared/assets/images/design/dark/services.png'
-import aiLight from '@/shared/assets/images/design/light/ai.png'
-import bookingLight from '@/shared/assets/images/design/light/booking.png'
-import meetingsLight from '@/shared/assets/images/design/light/meetings.png'
-import servicesLight from '@/shared/assets/images/design/light/services.png'
+import { services } from '@/entities/service'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
-
-const features = [
-  {
-    id: 'booking',
-    title: 'Seamless Scheduling',
-    description:
-      'Send a scheduling link and let clients choose the perfect time without endless back-and-forth emails. Your available slots sync automatically.',
-    imageDark: bookingDark,
-    imageLight: bookingLight,
-    reverse: false,
-    accent: 'text-primary',
-  },
-  {
-    id: 'meetings',
-    title: 'Native Meetings',
-    description:
-      'Create rooms and host live sessions directly in your browser. No downloads, no third-party applications required.',
-    imageDark: meetingsDark,
-    imageLight: meetingsLight,
-    reverse: true,
-    accent: 'text-blue-400',
-  },
-  {
-    id: 'services',
-    title: 'Productize Your Knowledge',
-    description:
-      'Package your consultations into ready-made digital products and accept payments in one click natively via Stripe.',
-    imageDark: servicesDark,
-    imageLight: servicesLight,
-    reverse: false,
-    accent: 'text-green-400',
-  },
-  {
-    id: 'ai',
-    title: 'AI Adviser & Data Analytics',
-    description:
-      'Converse with your data. Ask the digital assistant to analyze statistics, generate sales charts, or summarize meeting outcomes.',
-    imageDark: aiDark,
-    imageLight: aiLight,
-    reverse: true,
-    accent: 'text-purple-400',
-  },
-]
 
 export default function FeaturesBlock() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -127,7 +76,7 @@ export default function FeaturesBlock() {
       className="relative flex w-full flex-col items-center overflow-hidden bg-background px-4 py-32 md:px-8"
     >
       <div className="flex w-full max-w-7xl flex-col gap-32">
-        {features.map((feature, idx) => (
+        {services.map((feature, idx) => (
           <div
             key={feature.id}
             className={`feature-row flex flex-col ${feature.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 lg:gap-24`}
@@ -140,9 +89,7 @@ export default function FeaturesBlock() {
                 0
                 {idx + 1}
                 {' '}
-                &#47;&#47;
-                {' '}
-                Module
+                &#47;&#47; Module
               </div>
               <h2 className="mb-6 font-sans text-4xl leading-tight font-bold text-foreground md:text-5xl lg:text-6xl">
                 {feature.title}
@@ -159,14 +106,10 @@ export default function FeaturesBlock() {
                   <Image
                     src={isDark ? feature.imageDark : feature.imageLight}
                     alt={feature.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 60vw"
-                    className="object-cover opacity-90 transition-opacity group-hover:opacity-100"
+                    className="h-auto w-full object-cover"
                   />
                 )}
               </div>
-              {/* Decorative Glow behind image */}
-              <div className="absolute inset-0 -z-10 bg-primary/5 blur-[100px] transition-all duration-700 group-hover:bg-primary/20" />
             </div>
           </div>
         ))}

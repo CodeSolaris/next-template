@@ -1,3 +1,3 @@
-export { FeedbackProvider } from './feedback-provider'
 export { ThemeProvider } from './theme-provider'
-export { useFeedback } from '@/shared/lib'
+export { FeedbackProvider } from '@/features/feedback'
+export { useFeedback } from '@/features/feedback'

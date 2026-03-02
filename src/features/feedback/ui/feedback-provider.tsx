@@ -3,7 +3,7 @@
 import type { ReactNode } from 'react'
 import { Send, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { FeedbackContext } from '@/shared/lib'
+import { FeedbackContext } from '../model/feedback-context'
 
 export function FeedbackProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false)

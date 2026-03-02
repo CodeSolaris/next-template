@@ -6,7 +6,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 import { useRef } from 'react'
-import { useFeedback } from '@/shared/lib'
+import { useFeedback } from '@/features/feedback'
+import { Button } from '@/shared/ui'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -53,21 +54,18 @@ export default function Footer() {
         </h2>
 
         <div className="flex flex-col items-center gap-4 sm:flex-row">
-          <Link
-            href="/signup"
-            className="footer-anim group/btn relative flex scale-100 items-center gap-3 overflow-hidden rounded-full bg-primary px-8 py-4 font-sans text-lg font-medium text-white opacity-0 shadow-[0_0_30px_rgba(123,97,255,0.2)] transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:scale-[1.03] focus:outline-none"
-          >
-            <span className="relative z-10">Get Access Today</span>
-            <ArrowRight className="relative z-10 h-5 w-5 transition-transform duration-500 group-hover/btn:translate-x-1" />
-            <span className="absolute inset-0 z-0 translate-y-full bg-white/20 transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover/btn:translate-y-0"></span>
-          </Link>
+          <Button href="/signup" className="footer-anim flex items-center gap-3 opacity-0">
+            Get Access Today
+            <ArrowRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1" />
+          </Button>
 
-          <button
+          <Button
+            variant="secondary"
             onClick={openFeedback}
-            className="footer-anim relative overflow-hidden rounded-full border border-foreground/10 bg-surface px-8 py-4 font-sans text-lg font-medium text-foreground opacity-0 shadow-xl shadow-background/5 transition-all duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:scale-[1.03] hover:bg-foreground/5"
+            className="footer-anim opacity-0"
           >
-            <span className="relative z-10">Talk to Sales</span>
-          </button>
+            Talk to Sales
+          </Button>
         </div>
       </div>
 

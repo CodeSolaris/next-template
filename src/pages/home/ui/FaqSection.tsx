@@ -5,33 +5,12 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Plus } from 'lucide-react'
 import { useRef, useState } from 'react'
+import { faqs } from '@/entities/faq'
+import { SectionHeader } from '@/shared/ui'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
-
-const faqs = [
-  {
-    question: 'Do I need to migrate all my data at once?',
-    answer:
-      'No. NeoDesk is designed for incremental adoption. You can connect individual data sources one by one through our API, and the system will automatically begin synthesizing connections without disrupting your existing workflows.',
-  },
-  {
-    question: 'How secure is the unified index?',
-    answer:
-      'Every piece of data is encrypted at rest using AES-256 and in transit via TLS 1.3. Organizations with strict compliances can opt for our Enterprise tier, which includes single-tenant infrastructure and BYOK (Bring Your Own Key) capabilities.',
-  },
-  {
-    question: 'Does this replace my existing tools like Jira or Linear?',
-    answer:
-      'It doesn\'t replace them; it unifies their data. NeoDesk functions as a meta-layer above your specialized tools. Your engineers can stay in Linear, your sales team in Salesforce, while leadership gets a live, centralized view of the entire operation.',
-  },
-  {
-    question: 'What is the typical setup time?',
-    answer:
-      'Most organizations complete their initial configuration within 48 hours. The AI requires approximately one week of observation of your data streams to establish baseline operational patterns before providing high-confidence predictive insights.',
-  },
-]
 
 export default function FaqSection() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -87,17 +66,12 @@ export default function FaqSection() {
       className="relative z-10 overflow-hidden bg-background px-6 py-32"
     >
       <div className="mx-auto flex max-w-3xl flex-col gap-16">
-        <div className="faq-header flex flex-col items-center text-center">
-          <h2 className="mb-6 font-sans text-4xl font-bold md:text-5xl lg:text-6xl">
-            Common
-            {' '}
-            <span className="font-serif text-primary italic">Inquiries</span>
-            .
-          </h2>
-          <p className="max-w-lg text-center font-mono text-base text-foreground/50">
-            Details on integration, security, and scaling with NeoDesk.
-          </p>
-        </div>
+        <SectionHeader
+          title="Common"
+          italicTitle="Inquiries"
+          description="Details on integration, security, and scaling with NeoDesk."
+          className="faq-header"
+        />
 
         <div className="flex w-full flex-col gap-4">
           {faqs.map((faq, i) => {

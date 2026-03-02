@@ -21,7 +21,19 @@
     }
   }
 
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes spin-reverse-slow {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+  }
+
   --animation-in: animate-in 0.3s ease-out;
+  --animation-spin-slow: spin-slow 8s linear infinite;
+  --animation-spin-reverse-slow: spin-reverse-slow 12s linear infinite;
 }
 
 @layer utilities {
