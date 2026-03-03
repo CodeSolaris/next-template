@@ -11,7 +11,7 @@ export default antfu(
     react: true,
     nextjs: true,
     typescript: true,
-    ignores: ['.next', 'dist', 'out', 'coverage', 'public', '.agents', 'playwright-report', 'test-results', 'drizzle'],
+    ignores: ['node_modules', '.next', 'dist', 'out', 'coverage', 'public', '.agents', 'playwright-report', 'test-results', 'drizzle', '_migration-temp'],
   },
   // --- Accessibility Rules ---
   jsxA11y.flatConfigs.recommended,
@@ -24,8 +24,12 @@ export default antfu(
   {
     settings: {
       tailwindcss: {
-        config: `${dirname(fileURLToPath(import.meta.url))}/src/styles/globals.css`,
+        config: `${dirname(fileURLToPath(import.meta.url))}/src/app/styles/globals.css`,
+        ignoredKeys: ['compoundVariants', 'defaultVariants', 'variants'],
       },
+    },
+    rules: {
+      'tailwindcss/no-custom-classname': 'off',
     },
   },
 )

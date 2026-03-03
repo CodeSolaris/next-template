@@ -20,6 +20,13 @@ Production-ready Next.js starter with a full CI/CD pipeline, automated releases,
 
 ---
 
+## Architecture
+
+This project strictly follows the **Feature-Sliced Design (FSD) 2.1** methodology.
+For detailed architectural principles, import rules, and Next.js specific patterns used in this template, please refer to the [FSD Architecture Guide](./docs/fsd-architecture.md).
+
+---
+
 ## Quick Start
 
 ```bash
