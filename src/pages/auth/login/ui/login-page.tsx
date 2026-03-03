@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export function LoginPage() {
   return (
-    <div className="animate-in fade-in slide-in-from-bottom-4 flex flex-col gap-6 duration-1000">
+    <div className="flex animate-in flex-col gap-6 duration-1000 fade-in slide-in-from-bottom-4">
       <div>
         <h1 className="mb-2 font-sans text-3xl font-bold text-foreground">
           Welcome back

@@ -11,10 +11,15 @@ async function main() {
     email: 'john@example.com',
   }).returning()
 
+  const [user] = newUser
+  if (!user) {
+    throw new Error('Failed to create user')
+  }
+
   await db.insert(schema.posts).values({
     title: 'Hello Drizzle',
     content: 'This is my first post with Neon and FSD',
-    authorId: newUser[0].id,
+    authorId: user.id,
   })
 
   process.exit(0)

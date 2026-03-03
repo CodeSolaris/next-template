@@ -195,7 +195,7 @@ export default function CoreEngines() {
                 <div
                   // eslint-disable-next-line react/no-array-index-key
                   key={i}
-                  className="animate-in fade-in slide-in-from-bottom-2 duration-300"
+                  className="animate-in duration-300 fade-in slide-in-from-bottom-2"
                 >
                   <span className="text-blue-400">[SYS]</span>
                   {' '}

@@ -16,7 +16,7 @@ export function DiagnosticShuffler() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setDiagnostic(codes[Math.floor(Math.random() * codes.length)])
+      setDiagnostic(codes[Math.floor(Math.random() * codes.length)] ?? 'SYSTEM_IDLE')
     }, 2000)
     return () => clearInterval(interval)
   }, [])

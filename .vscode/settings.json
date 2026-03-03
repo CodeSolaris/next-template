@@ -45,7 +45,9 @@
     "css",
     "less",
     "scss",
-    "pcss",
     "postcss"
+  ],
+  "cSpell.words": [
+    "steiger"
   ]
 }

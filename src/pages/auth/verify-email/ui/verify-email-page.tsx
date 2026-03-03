@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export function VerifyEmailPage() {
   return (
-    <div className="animate-in fade-in zoom-in-95 flex flex-col items-center gap-6 text-center duration-1000">
+    <div className="flex animate-in flex-col items-center gap-6 text-center duration-1000 zoom-in-95 fade-in">
       <div className="mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-primary/20">
         <MailCheck className="h-10 w-10 text-primary" strokeWidth={1.5} />
       </div>

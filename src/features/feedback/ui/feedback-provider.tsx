@@ -12,12 +12,12 @@ export function FeedbackProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+      return
     }
-    else {
-      document.body.style.overflow = 'unset'
-      const t = setTimeout(() => setIsSubmitted(false), 300)
-      return () => clearTimeout(t)
-    }
+
+    document.body.style.overflow = 'unset'
+    const t = setTimeout(() => setIsSubmitted(false), 300)
+    return () => clearTimeout(t)
   }, [isOpen])
 
   const openFeedback = () => setIsOpen(true)
